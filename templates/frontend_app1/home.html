@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border="2">
+        <tr>
+            <th>emp_id</th>
+            <th>emp_name</th>
+            <th>emp_email</th>
+            <th>emp_salary</th>
+            <th>emp_mobile</th>
+            <th>emp_dept</th>
+            <th>emp_join_date</th>
+            <th>emp_edit</th>
+            <th>emp_delete</th>
+        </tr>
+        {% for x in data %}
+        <tr>
+            <td>{{x.emp_id}}</td>
+            <td>{{x.emp_name}}</td>
+            <td>{{x.emp_email}}</td>
+            <td>{{x.emp_salary}}</td>
+            <td>{{x.emp_mobile}}</td>
+            <td>{{x.emp_dept}}</td>
+            <td>{{x.emp_join_date}}</td>
+            <td>
+                <a href="{% url 'update1' x.id %}">edit</a>
+            </td>
+            <td>
+                <a href="{% url 'delete1' x.id %}">delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="{% url 'emp_form1' %}">Employee Form</a>
+</body>
+</html>
